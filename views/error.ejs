@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= status %></title>
+
+		<meta name="theme-color" content="#C62828"></meta>
+
+		<%- include('global'); %>
+		<link rel="stylesheet" href="/_css/error.css"></link>
+	</head>
+	<body>
+		<nav class="red darken-3">
+			<div class="nav-wrapper container">
+				<a href="#" class="brand-logo left"><i class="medium material-icons left">error</i><%= global.translation['error']['title'] %></a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="center-align">
+				<h1 class="errcode"><%= global.translation['error']['messages'][status]['title'] || 'Oh no!' %></h1>
+				<p class="errmsg"><%= global.translation['error']['messages'][status]['message'] || 'Unknown error' %></p>
+				<a onclick="history.go(-1);" class="btn red lighten-1"><i class="medium material-icons left">replay</i> <%= global.translation['error']['return-back'] %></a><br>
+				<a href="/" class="btn home red lighten-1"><i class="medium material-icons left">fast_rewind</i> <%= global.translation['error']['return-home'] %></a>
+			</div>
+		</div>
+	</body>
+</html>

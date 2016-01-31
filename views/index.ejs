@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+
+		<%- include('global'); %>
+		<link rel="stylesheet" href="/_css/index.css"></link>
+	</head>
+	<body>
+		<div class="green nav-wrapper">
+			<div id="path" class="container">
+				<%
+				var current = '/';
+
+				dir.split('/').forEach((name) => {
+					name = name || '/';
+					current = path.join(current, name);
+					%>
+				<a href="<%= current %>" class="breadcrumb"><%= name %></a>
+					<%
+				});
+				%>
+			</div>
+		</div>
+
+		<div class="container">
+			<ul class="collection">
+			<%
+			dirs.forEach((name) => {
+				%>
+				<a href="<%= path.join(current, name) %>"><li class="collection-item"><i class="tiny material-icons prefix">perm_media</i> <%= name %></li></a>
+				<%
+			});
+
+			files.forEach((name) => {
+				%>
+				<a href="<%= path.join(current, name) %>"><li class="collection-item"><i class="tiny material-icons prefix">description</i> <%= name %></li></a>
+				<%
+			});
+			%>
+			</ul>
+		</div>
+	</body>
+</html>

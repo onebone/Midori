@@ -1,0 +1,9 @@
+#path{
+	white-space: nowrap;
+	overflow-x: scroll;
+	padding-top: 8px;
+}
+
+::-webkit-scrollbar{
+	display: none;
+}

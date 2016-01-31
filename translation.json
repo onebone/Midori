@@ -1,0 +1,21 @@
+{
+	"common": {
+		"title": "Download center",
+		"brand-logo": "Downloads"
+	},
+	"error": {
+		"title": "ERROR",
+		"return-back": "Return back",
+		"return-home": "Return home",
+		"messages": {
+			"404": {
+				"title": "Not Found",
+				"message": "Your requested file can not be found"
+			},
+			"500": {
+				"title": "Aw snap!",
+				"message": "There was an internal server error!"
+			}
+		}
+	}
+}
