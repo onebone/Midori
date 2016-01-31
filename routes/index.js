@@ -10,6 +10,8 @@ router.get('*', function(req, res, next) {
 
 	fs.stat(dir, (err, stat) => {
 		if(err){
+			if(err.code === 'ENOENT') err.status = 404;
+
 			next(err);
 			return;
 		}
