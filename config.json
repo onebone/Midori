@@ -1,3 +1,5 @@
 {
-	"document-path": "documents/"
+	"document-path": "documents/",
+	"session-secret": "hello secret!",
+	"session-expiration": 60
 }

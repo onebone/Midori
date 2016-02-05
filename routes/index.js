@@ -96,8 +96,18 @@ router.post('*', function(req, res, next){
 					return;
 				}
 
+				if(Date.now() - req.session[dir] >= global.config['session-expiration'] * 1000){
+					res.status(403);
+					res.render('restricted', {
+						wrong: false
+					});
+					return;
+				}
+
 				for(var key in value){
 					if(key === req.body.username && value[key] === req.body.password){
+						req.session[dir] = Date.now();
+
 						renderPage(stat, dir, res, req, next);
 						return;
 					}
@@ -129,8 +139,14 @@ router.get('*', function(req, res, next) {
 		}
 		isRestricted(fs.realpathSync(dir), (err, result) => {
 			if(err){
-
 				next(err);
+				return;
+			}
+
+			if(Date.now() - req.session[dir] < global.config['session-expiration'] * 1000){
+				req.session[dir] = Date.now();
+
+				renderPage(stat, dir, res, req, next);
 				return;
 			}
 
@@ -140,9 +156,9 @@ router.get('*', function(req, res, next) {
 					wrong: false
 				});
 				return;
+			}else{
+				renderPage(stat, dir, res, req, next);
 			}
-
-			renderPage(stat, dir, res, req, next);
 		});
 	});
 });
