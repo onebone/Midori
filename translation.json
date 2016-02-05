@@ -1,6 +1,14 @@
 {
 	"common": {
 		"title": "Download center",
+		"restricted": {
+			"title": "Restricted Access",
+			"message": "You have to authentificate to prove you are authorized user.",
+			"message": "Please type your username and password",
+			"submit": "Submit",
+
+			"wrong-password": "Wrong password."
+		},
 		"brand-logo": "Downloads"
 	},
 	"error": {
